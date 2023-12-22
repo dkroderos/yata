@@ -63,6 +63,8 @@
 	  <None Remove="Resources\Images\checked_dark.svg" />
 	  <None Remove="Resources\Images\checked_light.svg" />
 	  <None Remove="Resources\Images\checklist_dark.svg" />
+	  <None Remove="Resources\Images\delete.svg" />
+	  <None Remove="Resources\Images\edit.svg" />
 	  <None Remove="Resources\Images\unchecked_dark.svg" />
 	  <None Remove="Resources\Images\unchecked_light.svg" />
 	</ItemGroup>
@@ -95,6 +97,9 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\AddTodoPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\TodoGroupDetails.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\TodosPage.xaml">

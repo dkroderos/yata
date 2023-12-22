@@ -21,17 +21,27 @@
             <CollectionView.ItemTemplate>
                 <DataTemplate x:DataType="models:TodoGroup">
                     <StackLayout Padding="15,0">
-                        <HorizontalStackLayout Margin="0,0,0,10">
+                        <Grid Margin="0,0,0,10" ColumnDefinitions="Auto,*,Auto,Auto">
                             <Ellipse
+                                Grid.Column="0"
                                 Margin="0,0,10,0"
                                 Fill="{StaticResource LatteSky}"
                                 HeightRequest="30"
                                 WidthRequest="30" />
                             <Label
+                                Grid.Column="1"
                                 FontAttributes="Bold"
                                 FontSize="30"
                                 Text="{Binding Name}" />
-                        </HorizontalStackLayout>
+                            <Image
+                                Grid.Column="2"
+                                Margin="5,0"
+                                Source="Resources/Images/edit.svg" />
+                            <Image
+                                Grid.Column="3"
+                                Margin="5,0"
+                                Source="Resources/Images/delete.svg" />
+                        </Grid>
                         <Frame
                             Padding="10,15,10,0"
                             BackgroundColor="{StaticResource LatteSky}"
