@@ -21,8 +21,8 @@ public partial class TodosViewModel : BaseViewModel
     {
         Title = "Todos";
 
-        //GetSampleData();
         RefreshTodoGroups();
+        GetSampleData();
     }
 
     [ObservableProperty]
@@ -56,7 +56,7 @@ public partial class TodosViewModel : BaseViewModel
         await Shell.Current.GoToAsync($"{nameof(AddTodoGroupPage)}", true);
     }
 
-    public async Task RefreshTodoGroups()
+    public async void RefreshTodoGroups()
     {
         TodoGroups.Clear();
 

@@ -44,16 +44,16 @@ public partial class AddTodoGroupViewModel : BaseViewModel
             });
 
             await Shell.Current.CurrentPage.DisplayAlert("Success!",
-                $"Todo added", "OK");
+                $"Todo Group added", "OK");
 
             // Refresh the Todo Groups behind the scenes for efficiency
-            await this.todosViewModel.RefreshTodoGroups();
+            this.todosViewModel.RefreshTodoGroups();
         }
         catch (Exception ex)
         {
             Debug.WriteLine(ex);
             await Shell.Current.CurrentPage.DisplayAlert("Error!",
-                $"Unable to add Todo: {ex.Message}", "OK");
+                $"Unable to add Todo Group: {ex.Message}", "OK");
         }
     }
 }

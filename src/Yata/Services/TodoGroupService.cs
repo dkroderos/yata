@@ -19,7 +19,7 @@ public class TodoGroupService
             return;
         }
 
-        string databaseFilename = "TodoGroupGroupsDB";
+        string databaseFilename = "TodoGroupDB";
         string databasePath = Path.Combine(FileSystem.AppDataDirectory, databaseFilename);
 
         SQLite.SQLiteOpenFlags flags =
