@@ -1,5 +1,7 @@
 ﻿using CommunityToolkit.Maui;
 using Microsoft.Extensions.Logging;
+using Yata.ViewModels;
+using Yata.Views;
 
 namespace Yata
 {
@@ -20,6 +22,14 @@ namespace Yata
 #if DEBUG
     		builder.Logging.AddDebug();
 #endif
+
+            builder.Services.AddSingleton<TodosPage>();
+            builder.Services.AddTransient<AddTodoGroupPage>();
+            builder.Services.AddTransient<AddTodoPage>();
+
+            builder.Services.AddSingleton<TodosViewModel>();
+            builder.Services.AddTransient<AddTodoGroupViewModel>();
+            builder.Services.AddTransient<AddTodoViewModel>();
 
             return builder.Build();
         }

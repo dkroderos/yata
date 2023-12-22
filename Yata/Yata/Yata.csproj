@@ -57,6 +57,16 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Remove="Resources\Images\add_dark.svg" />
+	  <None Remove="Resources\Images\add_light.svg" />
+	  <None Remove="Resources\Images\checked_dark.svg" />
+	  <None Remove="Resources\Images\checked_light.svg" />
+	  <None Remove="Resources\Images\checklist_dark.svg" />
+	  <None Remove="Resources\Images\unchecked_dark.svg" />
+	  <None Remove="Resources\Images\unchecked_light.svg" />
+	</ItemGroup>
+
+	<ItemGroup>
 		<PackageReference Include="CommunityToolkit.Maui" Version="7.0.1" />
 		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.2" />
 		<PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
@@ -67,7 +77,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Folder Include="ViewModels\" />
+	  <MauiImage Include="Resources\AppIcon\icon.svg" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -80,7 +90,10 @@
 	  <MauiXaml Update="Resources\Styles\CatppuccinStyles.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\TodoGroupsPage.xaml">
+	  <MauiXaml Update="Views\AddTodoGroupPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\AddTodoPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\TodosPage.xaml">

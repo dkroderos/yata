@@ -3,13 +3,16 @@
     x:Class="Yata.AppShell"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:local="clr-namespace:Yata"
+    xmlns:views="clr-namespace:Yata.Views"
+    Title="Yata"
     Shell.FlyoutBehavior="Disabled"
-    Title="Yata">
+    Shell.TabBarIsVisible="False">
 
-    <ShellContent
-        Title="Home"
-        ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
+    <FlyoutItem>
+        <ShellContent
+            Title="Todos"
+            ContentTemplate="{DataTemplate views:TodosPage}"
+            Route="Todos" />
+    </FlyoutItem>
 
 </Shell>
