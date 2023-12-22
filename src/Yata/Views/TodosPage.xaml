@@ -13,17 +13,17 @@
         <mct:StatusBarBehavior StatusBarColor="{AppThemeBinding Light={StaticResource LatteCrust}, Dark={StaticResource MacchiatoCrust}}" StatusBarStyle="{AppThemeBinding Dark=LightContent, Light=DarkContent}" />
     </Page.Behaviors>
 
-    <Grid>
+    <Grid Margin="0,10">
         <CollectionView ItemsSource="{Binding TodoGroups}">
             <CollectionView.ItemsLayout>
                 <LinearItemsLayout ItemSpacing="20" Orientation="Vertical" />
             </CollectionView.ItemsLayout>
             <CollectionView.ItemTemplate>
                 <DataTemplate x:DataType="models:TodoGroup">
-                    <StackLayout>
-                        <HorizontalStackLayout>
+                    <StackLayout Padding="15,0">
+                        <HorizontalStackLayout Margin="0,0,0,10">
                             <Ellipse
-                                Margin="10,0"
+                                Margin="0,0,10,0"
                                 Fill="{StaticResource LatteSky}"
                                 HeightRequest="30"
                                 WidthRequest="30" />
@@ -32,48 +32,85 @@
                                 FontSize="30"
                                 Text="{Binding Name}" />
                         </HorizontalStackLayout>
-                        <Border BackgroundColor="{StaticResource LatteSky}">
+                        <Frame
+                            Padding="10,15,10,0"
+                            BackgroundColor="{StaticResource LatteSky}"
+                            CornerRadius="20">
                             <Grid RowDefinitions="Auto,Auto,Auto">
                                 <StackLayout Grid.Row="0">
-                                    <Label Text="{Binding Id}" />
-                                    <Label Text="{Binding Name}" />
+                                    <!--<Label Text="{Binding Id}" />-->
+                                    <!--<Label Text="{Binding Name}" />-->
                                     <Label Text="{Binding Description}" />
-                                    <Label Text="{Binding Color}" />
+                                    <!--<Label Text="{Binding Color}" />-->
                                 </StackLayout>
-                                <StackLayout Grid.Row="1" BindableLayout.ItemsSource="{Binding CheckedTodos}">
-                                    <BindableLayout.ItemTemplate>
-                                        <DataTemplate x:DataType="models:Todo">
-                                            <StackLayout>
-                                                <Label Text="{Binding Id}" />
-                                                <Label Text="{Binding GroupId}" />
-                                                <Label Text="{Binding Name}" />
-                                                <Label Text="{Binding Description}" />
-                                                <Label Text="{Binding IsCompleted}" />
-                                                <Label Text="{Binding DateCreated}" />
-                                                <Label Text="{Binding LastUpdated}" />
-                                                <Label Text="{Binding DeadlineDate}" />
-                                            </StackLayout>
-                                        </DataTemplate>
-                                    </BindableLayout.ItemTemplate>
-                                </StackLayout>
-                                <StackLayout Grid.Row="2" BindableLayout.ItemsSource="{Binding UncheckedTodos}">
-                                    <BindableLayout.ItemTemplate>
-                                        <DataTemplate x:DataType="models:Todo">
-                                            <StackLayout>
-                                                <Label Text="{Binding Id}" />
-                                                <Label Text="{Binding GroupId}" />
-                                                <Label Text="{Binding Name}" />
-                                                <Label Text="{Binding Description}" />
-                                                <Label Text="{Binding IsCompleted}" />
-                                                <Label Text="{Binding DateCreated}" />
-                                                <Label Text="{Binding LastUpdated}" />
-                                                <Label Text="{Binding DeadlineDate}" />
-                                            </StackLayout>
-                                        </DataTemplate>
-                                    </BindableLayout.ItemTemplate>
-                                </StackLayout>
+                                <Frame
+                                    Grid.Row="1"
+                                    Margin="0,10"
+                                    Padding="15,10"
+                                    BackgroundColor="{StaticResource LatteCrust}"
+                                    CornerRadius="20">
+                                    <StackLayout>
+                                        <Label
+                                            FontAttributes="Bold"
+                                            FontSize="20"
+                                            Text="Incomplete" />
+                                        <StackLayout BindableLayout.ItemsSource="{Binding UncheckedTodos}">
+                                            <BindableLayout.ItemTemplate>
+                                                <DataTemplate x:DataType="models:Todo">
+                                                    <Frame
+                                                        Margin="0,10"
+                                                        BackgroundColor="{StaticResource LatteSky}"
+                                                        CornerRadius="20">
+                                                        <StackLayout>
+                                                            <!--<Label Text="{Binding Id}" />
+                                                        <Label Text="{Binding GroupId}" />-->
+                                                            <Label Text="{Binding Name}" />
+                                                            <!--<Label Text="{Binding Description}" />
+                                                        <Label Text="{Binding IsCompleted}" />
+                                                        <Label Text="{Binding DateCreated}" />
+                                                        <Label Text="{Binding LastUpdated}" />
+                                                        <Label Text="{Binding DeadlineDate}" />-->
+                                                        </StackLayout>
+                                                    </Frame>
+                                                </DataTemplate>
+                                            </BindableLayout.ItemTemplate>
+                                        </StackLayout>
+                                    </StackLayout>
+                                </Frame>
+                                <Frame
+                                    Grid.Row="2"
+                                    Margin="0,10"
+                                    Padding="15,10"
+                                    BackgroundColor="{StaticResource LatteCrust}"
+                                    CornerRadius="20">
+                                    <StackLayout>
+                                        <Label
+                                            FontAttributes="Bold"
+                                            FontSize="20"
+                                            Text="Completed" />
+                                        <StackLayout BindableLayout.ItemsSource="{Binding CheckedTodos}" IsVisible="false">
+                                            <BindableLayout.ItemTemplate>
+                                                <DataTemplate x:DataType="models:Todo">
+                                                    <Frame
+                                                        Margin="0,10"
+                                                        BackgroundColor="{StaticResource LatteSky}"
+                                                        CornerRadius="20">
+                                                        <!--<Label Text="{Binding Id}" />
+                                                        <Label Text="{Binding GroupId}" />-->
+                                                        <Label Text="{Binding Name}" />
+                                                        <!--<Label Text="{Binding Description}" />
+                                                        <Label Text="{Binding IsCompleted}" />
+                                                        <Label Text="{Binding DateCreated}" />
+                                                        <Label Text="{Binding LastUpdated}" />
+                                                        <Label Text="{Binding DeadlineDate}" />-->
+                                                    </Frame>
+                                                </DataTemplate>
+                                            </BindableLayout.ItemTemplate>
+                                        </StackLayout>
+                                    </StackLayout>
+                                </Frame>
                             </Grid>
-                        </Border>
+                        </Frame>
                     </StackLayout>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
@@ -84,7 +121,11 @@
                 HorizontalOptions="End"
                 Source="Resources/Images/add.svg"
                 VerticalOptions="End"
-                WidthRequest="70" />
+                WidthRequest="70">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding GoToAddTodoGroupCommand}" />
+                </Image.GestureRecognizers>
+            </Image>
         </Border>
     </Grid>
 </ContentPage>

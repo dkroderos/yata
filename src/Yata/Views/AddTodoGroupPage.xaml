@@ -1,12 +1,32 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Yata.Views.AddTodoGroupPage"
-             Title="AddTodoGroupPage">
+<ContentPage
+    x:Class="Yata.Views.AddTodoGroupPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:models="clr-namespace:Yata.Models"
+    xmlns:viewmodels="clr-namespace:Yata.ViewModels"
+    Title="{Binding Title}"
+    x:DataType="viewmodels:AddTodoGroupViewModel">
     <VerticalStackLayout>
-        <Label 
+        <Label
+            HorizontalOptions="Center"
             Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+            VerticalOptions="Center" />
     </VerticalStackLayout>
+
+    <!--public int Id { get; set; }
+ public string? Name { get; set; }
+ public string? Description { get; set; }
+ public string? Color { get; set; }
+
+ [Ignore]
+ public Color? ThemeColor { get; set; }
+
+ [Ignore]
+ public List
+    <Todo>? UncheckedTodos { get; set; }
+
+ [Ignore]
+ public List
+        <Todo>? CheckedTodos { get; set; }-->
 </ContentPage>

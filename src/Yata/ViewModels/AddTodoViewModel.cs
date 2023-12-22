@@ -4,9 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Yata.ViewModels
+namespace Yata.ViewModels;
+
+public partial class AddTodoViewModel : BaseViewModel
 {
-    public partial class AddTodoViewModel : BaseViewModel
-    {
-    }
 }

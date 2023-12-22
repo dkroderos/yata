@@ -5,17 +5,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Yata.ViewModels
+namespace Yata.ViewModels;
+
+public partial class BaseViewModel : ObservableObject
 {
-    public partial class BaseViewModel : ObservableObject
-    {
-        [ObservableProperty]
-        [NotifyPropertyChangedFor(nameof(IsNotBusy))]
-        private bool isBusy;
+    [ObservableProperty]
+    [NotifyPropertyChangedFor(nameof(IsNotBusy))]
+    private bool isBusy;
 
-        [ObservableProperty]
-        private string? title;
+    [ObservableProperty]
+    private string? title;
 
-        public bool IsNotBusy => !IsBusy;
-    }
+    public bool IsNotBusy => !IsBusy;
 }

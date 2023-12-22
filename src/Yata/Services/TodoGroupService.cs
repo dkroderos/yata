@@ -8,7 +8,7 @@ using Yata.Models;
 
 namespace Yata.Services;
 
-public class TodoService
+public class TodoGroupService
 {
     private static SQLiteAsyncConnection? Database;
 
@@ -19,7 +19,7 @@ public class TodoService
             return;
         }
 
-        string databaseFilename = "TodosDB";
+        string databaseFilename = "TodoGroupGroupsDB";
         string databasePath = Path.Combine(FileSystem.AppDataDirectory, databaseFilename);
 
         SQLite.SQLiteOpenFlags flags =
@@ -29,45 +29,45 @@ public class TodoService
 
         Database = new SQLiteAsyncConnection(databasePath, flags);
 
-        await Database.CreateTableAsync<Todo>();
+        await Database.CreateTableAsync<TodoGroup>();
     }
 
-    public static async Task AddTodoAsync(Todo todo)
+    public static async Task AddTodoGroupAsync(TodoGroup todoGroup)
     {
         await Init();
 
-        await Database!.InsertAsync(todo);
+        await Database!.InsertAsync(todoGroup);
     }
 
-    public static async Task RemoveTodoAsync(int id)
+    public static async Task RemoveTodoGroupAsync(int id)
     {
         await Init();
 
-        await Database!.DeleteAsync<Todo>(id);
+        await Database!.DeleteAsync<TodoGroup>(id);
     }
 
-    public static async Task<Todo> GetTodoAsync(int id)
+    public static async Task<TodoGroup> GetTodoGroupAsync(int id)
     {
         await Init();
 
-        var todo = await Database!.GetAsync<Todo>(id);
+        var todoGroup = await Database!.GetAsync<TodoGroup>(id);
 
-        return todo;
+        return todoGroup;
     }
 
-    public static async Task<IEnumerable<Todo>> GetTodosAsync()
+    public static async Task<IEnumerable<TodoGroup>> GetTodoGroupsAsync()
     {
         await Init();
 
-        var todo = await Database!.Table<Todo>().ToListAsync();
+        var todoGroup = await Database!.Table<TodoGroup>().ToListAsync();
 
-        return todo;
+        return todoGroup;
     }
 
-    public static async Task UpdateTodoAsync(Todo todo)
+    public static async Task UpdateTodoGroupAsync(TodoGroup todoGroup)
     {
         await Init();
 
-        await Database!.UpdateAsync(todo);
+        await Database!.UpdateAsync(todoGroup);
     }
 }
