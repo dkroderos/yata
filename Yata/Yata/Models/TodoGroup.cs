@@ -19,6 +19,9 @@ namespace Yata.Models
         public Color? ThemeColor { get; set; }
 
         [Ignore]
-        public List<Todo>? Todos { get; set; }
+        public List<Todo>? UncheckedTodos { get; set; }
+
+        [Ignore]
+        public List<Todo>? CheckedTodos { get; set; }
     }
 }
