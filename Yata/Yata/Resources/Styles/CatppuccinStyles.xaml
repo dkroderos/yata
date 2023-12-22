@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ResourceDictionary xmlns="http://schemas.microsoft.com/dotnet/2021/maui" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    <Style ApplyToDerivedTypes="True" TargetType="Shell">
+        <Setter Property="Shell.BackgroundColor" Value="{AppThemeBinding Light={StaticResource LatteCrust}, Dark={StaticResource MacchiatoCrust}}" />
+        <Setter Property="Shell.ForegroundColor" Value="{AppThemeBinding Light={StaticResource LatteText}, Dark={StaticResource MacchiatoText}}" />
+        <Setter Property="Shell.TitleColor" Value="{AppThemeBinding Light={StaticResource LatteText}, Dark={StaticResource MacchiatoText}}" />
+        <Setter Property="Shell.FlyoutBackground" Value="{AppThemeBinding Light={StaticResource LatteMantle}, Dark={StaticResource MacchiatoMantle}}" />
+        <Setter Property="Shell.FlyoutBackgroundColor" Value="{AppThemeBinding Light={StaticResource LatteCrust}, Dark={StaticResource MacchiatoCrust}}" />
+        <Setter Property="Shell.UnselectedColor" Value="{AppThemeBinding Light={StaticResource LatteOverlay0}, Dark={StaticResource MacchiatoOverlay0}}" />
+    </Style>
+
+    <Style ApplyToDerivedTypes="True" TargetType="ContentPage">
+
+        <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource LatteCrust}, Dark={StaticResource MacchiatoCrust}}" />
+    </Style>
+
+    <Style ApplyToDerivedTypes="True" TargetType="Button">
+        <Setter Property="CornerRadius" Value="25" />
+        <Setter Property="HeightRequest" Value="50" />
+        <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource LatteText}, Dark={StaticResource MacchiatoText}}" />
+        <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource LatteSurface1}, Dark={StaticResource MacchiatoSurface1}}" />
+    </Style>
+
+    <Style ApplyToDerivedTypes="True" TargetType="Entry">
+        <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource LatteCrust}, Dark={StaticResource MacchiatoCrust}}" />
+        <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource LatteSubtext0}, Dark={StaticResource MacchiatoSubtext0}}" />
+        <Setter Property="PlaceholderColor" Value="{AppThemeBinding Light={StaticResource LatteSubtext0}, Dark={StaticResource MacchiatoSubtext0}}" />
+    </Style>
+
+    <Style ApplyToDerivedTypes="True" TargetType="DatePicker">
+        <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource LatteCrust}, Dark={StaticResource MacchiatoCrust}}" />
+        <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource LatteSubtext0}, Dark={StaticResource MacchiatoSubtext0}}" />
+    </Style>
+
+    <Style ApplyToDerivedTypes="True" TargetType="Picker">
+        <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource LatteCrust}, Dark={StaticResource MacchiatoCrust}}" />
+        <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource LatteSubtext0}, Dark={StaticResource MacchiatoSubtext0}}" />
+        <Setter Property="TitleColor" Value="{AppThemeBinding Light={StaticResource LatteSubtext0}, Dark={StaticResource MacchiatoSubtext0}}" />
+    </Style>
+
+    <Style ApplyToDerivedTypes="True" TargetType="TimePicker">
+        <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource LatteCrust}, Dark={StaticResource MacchiatoCrust}}" />
+        <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource LatteSubtext0}, Dark={StaticResource MacchiatoSubtext0}}" />
+    </Style>
+
+
+    <Style ApplyToDerivedTypes="True" TargetType="CheckBox">
+        <Setter Property="Color" Value="{AppThemeBinding Light={StaticResource LatteSubtext1}, Dark={StaticResource MacchiatoSubtext1}}" />
+    </Style>
+
+    <Style ApplyToDerivedTypes="True" TargetType="Label">
+        <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource LatteSubtext0}, Dark={StaticResource MacchiatoSubtext0}}" />
+    </Style>
+</ResourceDictionary>
