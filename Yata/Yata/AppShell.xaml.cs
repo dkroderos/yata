@@ -9,6 +9,8 @@ namespace Yata
             InitializeComponent();
 
             Routing.RegisterRoute(nameof(TodosPage), typeof(TodosPage));
+            Routing.RegisterRoute(nameof(AddTodoGroupPage), typeof(AddTodoGroupPage));
+            Routing.RegisterRoute(nameof(AddTodoPage), typeof(AddTodoPage));
         }
     }
 }

@@ -57,6 +57,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Remove="Resources\Images\add.svg" />
 	  <None Remove="Resources\Images\add_dark.svg" />
 	  <None Remove="Resources\Images\add_light.svg" />
 	  <None Remove="Resources\Images\checked_dark.svg" />

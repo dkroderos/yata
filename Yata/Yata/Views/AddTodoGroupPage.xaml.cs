@@ -1,4 +1,3 @@
-using Yata.Models;
 using Yata.ViewModels;
 
 namespace Yata.Views;

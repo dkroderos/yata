@@ -20,8 +20,6 @@ namespace Yata.Models
         public DateTime LastUpdated { get; set; }
         public DateTime DeadlineDate { get; set; }
 
-        [Ignore]
-        public Color? ThemeColor { get; set; }
 
         [Ignore]
         public string? BoxIcon { get; set; }

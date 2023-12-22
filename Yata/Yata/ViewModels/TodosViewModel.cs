@@ -13,11 +13,13 @@ namespace Yata.ViewModels
 {
     public partial class TodosViewModel : BaseViewModel
     {
-        private ObservableCollection<TodoGroup> TodoGroups { get; set; } = new ObservableCollection<TodoGroup>();
+        public ObservableCollection<TodoGroup> TodoGroups { get; set; } = [];
 
         public TodosViewModel()
         {
             Title = "Todos";
+
+            GetSampleData();
         }
 
         [ObservableProperty]
@@ -32,13 +34,6 @@ namespace Yata.ViewModels
             try
             {
                 IsBusy = true;
-
-                var sampleTodoGroups = GetSampleData();
-
-                foreach (var sample in sampleTodoGroups)
-                {
-                    TodoGroups.Add(sample);
-                }
             }
             catch (Exception ex)
             {
@@ -53,7 +48,7 @@ namespace Yata.ViewModels
         }
 
         #region Sample Data
-        private static List<TodoGroup> GetSampleData()
+        private void GetSampleData()
         {
             List<TodoGroup> todoGroups = new();
 
@@ -154,7 +149,10 @@ namespace Yata.ViewModels
             todoGroups.Add(workGroup);
             todoGroups.Add(personalGroup);
 
-            return todoGroups;
+            foreach (TodoGroup todoGroup in todoGroups)
+            {
+                TodoGroups.Add(todoGroup);
+            }
         }
         #endregion
     }
