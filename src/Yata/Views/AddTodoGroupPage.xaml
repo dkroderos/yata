@@ -8,10 +8,22 @@
     Title="{Binding Title}"
     x:DataType="viewmodels:AddTodoGroupViewModel">
     <VerticalStackLayout>
-        <Label
-            HorizontalOptions="Center"
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" />
+        <Entry
+            Margin="10,5"
+            Placeholder="Name"
+            Text="{Binding Name}" />
+        <Entry
+            Margin="10,5"
+            Placeholder="Description"
+            Text="{Binding Description}" />
+        <Entry
+            Margin="10,5"
+            Placeholder="Color"
+            Text="{Binding Color}" />
+        <Button
+            Margin="10,5"
+            Command="{Binding AddTodoGroupCommand}"
+            Text="Add" />
     </VerticalStackLayout>
 
     <!--public int Id { get; set; }

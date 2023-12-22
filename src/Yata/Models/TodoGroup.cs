@@ -23,5 +23,11 @@ namespace Yata.Models
 
         [Ignore]
         public List<Todo>? CheckedTodos { get; set; }
+
+        [Ignore]
+        public bool IsUncheckedTodosVisible { get; set; } = true;
+
+        [Ignore]
+        public bool IsCheckedTodosVisible { get; set; } = false;
     }
 }

@@ -13,9 +13,13 @@ namespace Yata.ViewModels;
 
 public partial class AddTodoGroupViewModel : BaseViewModel
 {
-    public AddTodoGroupViewModel()
+    private readonly TodosViewModel todosViewModel;
+
+    public AddTodoGroupViewModel(TodosViewModel todosViewModel)
     {
         Title = "Add Group";
+
+        this.todosViewModel = todosViewModel;
     }
 
     [ObservableProperty]
@@ -41,6 +45,9 @@ public partial class AddTodoGroupViewModel : BaseViewModel
 
             await Shell.Current.CurrentPage.DisplayAlert("Success!",
                 $"Todo added", "OK");
+
+            // Refresh the Todo Groups behind the scenes for efficiency
+            await this.todosViewModel.RefreshTodoGroups();
         }
         catch (Exception ex)
         {

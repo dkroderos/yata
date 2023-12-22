@@ -13,4 +13,9 @@ public partial class TodosPage : ContentPage
 		this.todosViewModel = todosViewModel;
 		BindingContext = this.todosViewModel;
 	}
+
+    protected override void OnNavigatedTo(NavigatedToEventArgs args)
+    {
+        base.OnNavigatedTo(args);
+    }
 }

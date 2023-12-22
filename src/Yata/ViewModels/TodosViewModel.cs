@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Yata.Models;
+using Yata.Services;
 using Yata.Views;
 
 namespace Yata.ViewModels;
@@ -20,7 +21,8 @@ public partial class TodosViewModel : BaseViewModel
     {
         Title = "Todos";
 
-        GetSampleData();
+        //GetSampleData();
+        RefreshTodoGroups();
     }
 
     [ObservableProperty]
@@ -54,8 +56,20 @@ public partial class TodosViewModel : BaseViewModel
         await Shell.Current.GoToAsync($"{nameof(AddTodoGroupPage)}", true);
     }
 
+    public async Task RefreshTodoGroups()
+    {
+        TodoGroups.Clear();
+
+        var todoGroups = await TodoGroupService.GetTodoGroupsAsync();
+
+        foreach (var todoGroup in todoGroups)
+        {
+            TodoGroups.Add(todoGroup);
+        }
+    }
+
     #region Sample Data
-    private void GetSampleData()
+    public void GetSampleData()
     {
         List<TodoGroup> todoGroups = new();
 

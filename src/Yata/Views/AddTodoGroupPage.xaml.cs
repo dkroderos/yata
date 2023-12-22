@@ -13,4 +13,9 @@ public partial class AddTodoGroupPage : ContentPage
 		this.addTodoGroupViewModel = addTodoGroupViewModel;
 		BindingContext = this.addTodoGroupViewModel;
 	}
+
+    protected override void OnNavigatedTo(NavigatedToEventArgs args)
+    {
+        base.OnNavigatedTo(args);
+    }
 }
