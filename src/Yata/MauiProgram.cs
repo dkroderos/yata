@@ -27,7 +27,7 @@ public static class MauiProgram
         builder.Services.AddTransient<AddTodoGroupPage>();
         builder.Services.AddTransient<AddTodoPage>();
 
-        builder.Services.AddSingleton<TodosViewModel>();
+        builder.Services.AddSingleton<TodoGroupsViewModel>();
         builder.Services.AddTransient<AddTodoGroupViewModel>();
         builder.Services.AddTransient<AddTodoViewModel>();
 

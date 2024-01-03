@@ -4,14 +4,14 @@ namespace Yata.Views;
 
 public partial class TodosPage : ContentPage
 {
-	private readonly TodosViewModel todosViewModel;
+	private readonly TodoGroupsViewModel todoGroupsViewModel;
 
-	public TodosPage(TodosViewModel todosViewModel)
+	public TodosPage(TodoGroupsViewModel todoGroupsViewModel)
 	{
 		InitializeComponent();
 
-		this.todosViewModel = todosViewModel;
-		BindingContext = this.todosViewModel;
+		this.todoGroupsViewModel = todoGroupsViewModel;
+		BindingContext = this.todoGroupsViewModel;
 	}
 
     protected override void OnNavigatedTo(NavigatedToEventArgs args)

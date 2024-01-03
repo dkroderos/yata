@@ -39,7 +39,7 @@ public class TodoGroupService
         await Database!.InsertAsync(todoGroup);
     }
 
-    public static async Task RemoveTodoGroupAsync(int id)
+    public static async Task DeleteTodoGroupAsync(int id)
     {
         await Init();
 
