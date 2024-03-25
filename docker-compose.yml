@@ -2,7 +2,7 @@ version: '3.4'
 
 services:
   yata.api:
-    image: ${DOCKER_REGISTRY-}yataapi
+    image: ${DOCKER_REGISTRY-}yata.api
     build:
       context: .
       dockerfile: src/Yata.Api/Dockerfile
