@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using Yata.Api.Data;
+using Yata.Api.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -21,6 +22,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.ApplyMigrations();
 
 app.UseHttpsRedirection();
 

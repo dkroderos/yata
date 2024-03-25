@@ -4,11 +4,11 @@ services:
   yata.api:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
-      - ASPNETCORE_HTTP_PORTS=8080
-      - ASPNETCORE_HTTPS_PORTS=8081
+      - ASPNETCORE_HTTP_PORTS=9270
+      - ASPNETCORE_HTTPS_PORTS=9271
     ports:
-      - "8080"
-      - "8081"
+      - "9270:9270"
+      - "9271:9271"
     volumes:
       - ${APPDATA}/Microsoft/UserSecrets:/home/app/.microsoft/usersecrets:ro
       - ${APPDATA}/ASP.NET/Https:/home/app/.aspnet/https:ro

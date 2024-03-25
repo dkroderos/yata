@@ -3,6 +3,21 @@ version: '3.4'
 services:
   yata.api:
     image: ${DOCKER_REGISTRY-}yata.api
+    container_name: yata.api
     build:
       context: .
       dockerfile: src/Yata.Api/Dockerfile
+    ports:
+      - "9270:9270"
+      - "9271:9271"
+  yata.db:
+    image: postgres:latest
+    container_name: yata.db
+    environment:
+      - POSTGRES_DB=yata
+      - POSTGRES_USER=yata
+      - POSTGRES_PASSWORD=yata
+    volumes:
+      - ./.containers/yata-db:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
