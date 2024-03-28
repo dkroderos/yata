@@ -1,5 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
-using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
+﻿using System;
+using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
@@ -15,8 +15,7 @@ namespace Yata.Api.Migrations
                 name: "Labels",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "integer", nullable: false)
-                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    Id = table.Column<Guid>(type: "uuid", nullable: false),
                     Name = table.Column<string>(type: "text", nullable: false),
                     Description = table.Column<string>(type: "text", nullable: false),
                     Color = table.Column<string>(type: "text", nullable: false)
@@ -30,13 +29,12 @@ namespace Yata.Api.Migrations
                 name: "Todos",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "integer", nullable: false)
-                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    Id = table.Column<Guid>(type: "uuid", nullable: false),
                     Name = table.Column<string>(type: "text", nullable: false),
                     Description = table.Column<string>(type: "text", nullable: false),
                     DateCreated = table.Column<string>(type: "text", nullable: false),
                     LastUpdated = table.Column<string>(type: "text", nullable: false),
-                    Done = table.Column<int>(type: "integer", nullable: false)
+                    Done = table.Column<bool>(type: "boolean", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -47,8 +45,8 @@ namespace Yata.Api.Migrations
                 name: "TodoLabels",
                 columns: table => new
                 {
-                    LabelsId = table.Column<int>(type: "integer", nullable: false),
-                    TodosId = table.Column<int>(type: "integer", nullable: false)
+                    LabelsId = table.Column<Guid>(type: "uuid", nullable: false),
+                    TodosId = table.Column<Guid>(type: "uuid", nullable: false)
                 },
                 constraints: table =>
                 {

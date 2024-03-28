@@ -1,3 +1,5 @@
+using Carter;
+using FluentValidation;
 using Microsoft.EntityFrameworkCore;
 using Yata.Api.Data;
 using Yata.Api.Extensions;
@@ -10,7 +12,13 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<ApplicationDbContext>(
     options => options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-builder.Services.AddMediatR(config => config.RegisterServicesFromAssembly(typeof(Program).Assembly));
+var assembly = typeof(Program).Assembly;
+
+builder.Services.AddMediatR(config => config.RegisterServicesFromAssembly(assembly));
+
+builder.Services.AddCarter();
+
+builder.Services.AddValidatorsFromAssembly(assembly);
 
 var app = builder.Build();
 
@@ -21,10 +29,8 @@ if (app.Environment.IsDevelopment())
     app.ApplyMigrations();
 }
 
+app.MapCarter();
+
 app.UseHttpsRedirection();
-
-app.UseAuthorization();
-
-app.MapControllers();
 
 app.Run();
