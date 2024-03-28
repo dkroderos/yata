@@ -12,7 +12,7 @@ namespace Yata.Api.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Label",
+                name: "Labels",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "integer", nullable: false)
@@ -23,11 +23,11 @@ namespace Yata.Api.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Label", x => x.Id);
+                    table.PrimaryKey("PK_Labels", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
-                name: "Todo",
+                name: "Todos",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "integer", nullable: false)
@@ -40,11 +40,11 @@ namespace Yata.Api.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Todo", x => x.Id);
+                    table.PrimaryKey("PK_Todos", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
-                name: "TodoLabel",
+                name: "TodoLabels",
                 columns: table => new
                 {
                     LabelsId = table.Column<int>(type: "integer", nullable: false),
@@ -52,24 +52,24 @@ namespace Yata.Api.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_TodoLabel", x => new { x.LabelsId, x.TodosId });
+                    table.PrimaryKey("PK_TodoLabels", x => new { x.LabelsId, x.TodosId });
                     table.ForeignKey(
-                        name: "FK_TodoLabel_Label_LabelsId",
+                        name: "FK_TodoLabels_Labels_LabelsId",
                         column: x => x.LabelsId,
-                        principalTable: "Label",
+                        principalTable: "Labels",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_TodoLabel_Todo_TodosId",
+                        name: "FK_TodoLabels_Todos_TodosId",
                         column: x => x.TodosId,
-                        principalTable: "Todo",
+                        principalTable: "Todos",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_TodoLabel_TodosId",
-                table: "TodoLabel",
+                name: "IX_TodoLabels_TodosId",
+                table: "TodoLabels",
                 column: "TodosId");
         }
 
@@ -77,13 +77,13 @@ namespace Yata.Api.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "TodoLabel");
+                name: "TodoLabels");
 
             migrationBuilder.DropTable(
-                name: "Label");
+                name: "Labels");
 
             migrationBuilder.DropTable(
-                name: "Todo");
+                name: "Todos");
         }
     }
 }

@@ -11,7 +11,7 @@ using Yata.Api.Data;
 namespace Yata.Api.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240326064806_Initial")]
+    [Migration("20240328003054_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
@@ -36,7 +36,7 @@ namespace Yata.Api.Migrations
 
                     b.HasIndex("TodosId");
 
-                    b.ToTable("TodoLabel", (string)null);
+                    b.ToTable("TodoLabels", (string)null);
                 });
 
             modelBuilder.Entity("Yata.Shared.Models.Label", b =>
@@ -61,7 +61,7 @@ namespace Yata.Api.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Label");
+                    b.ToTable("Labels");
                 });
 
             modelBuilder.Entity("Yata.Shared.Models.Todo", b =>
@@ -93,7 +93,7 @@ namespace Yata.Api.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Todo");
+                    b.ToTable("Todos");
                 });
 
             modelBuilder.Entity("LabelTodo", b =>
