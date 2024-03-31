@@ -12,7 +12,7 @@ using Yata.Api.Data;
 namespace Yata.Api.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240328031840_Initial")]
+    [Migration("20240331090701_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
@@ -69,9 +69,11 @@ namespace Yata.Api.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
-                    b.Property<string>("DateCreated")
-                        .IsRequired()
-                        .HasColumnType("text");
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<DateTime?>("Deadline")
+                        .HasColumnType("timestamp with time zone");
 
                     b.Property<string>("Description")
                         .IsRequired()
@@ -79,10 +81,6 @@ namespace Yata.Api.Migrations
 
                     b.Property<bool>("Done")
                         .HasColumnType("boolean");
-
-                    b.Property<string>("LastUpdated")
-                        .IsRequired()
-                        .HasColumnType("text");
 
                     b.Property<string>("Name")
                         .IsRequired()

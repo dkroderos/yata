@@ -14,6 +14,7 @@ public class ApplicationDbContext(DbContextOptions<ApplicationDbContext> options
 
         base.OnModelCreating(modelBuilder);
     }
+
     public virtual DbSet<Todo> Todos { get; set; }
     public virtual DbSet<Label> Labels { get; set; }
 }

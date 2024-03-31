@@ -32,8 +32,8 @@ namespace Yata.Api.Migrations
                     Id = table.Column<Guid>(type: "uuid", nullable: false),
                     Name = table.Column<string>(type: "text", nullable: false),
                     Description = table.Column<string>(type: "text", nullable: false),
-                    DateCreated = table.Column<string>(type: "text", nullable: false),
-                    LastUpdated = table.Column<string>(type: "text", nullable: false),
+                    CreatedAt = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
+                    Deadline = table.Column<DateTime>(type: "timestamp with time zone", nullable: true),
                     Done = table.Column<bool>(type: "boolean", nullable: false)
                 },
                 constraints: table =>

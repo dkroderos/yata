@@ -2,21 +2,22 @@
 using FluentValidation;
 using Mapster;
 using MediatR;
-using Yata.Api.Contracts.Todos;
+using Yata.Api.Contracts.Labels;
 using Yata.Api.Data;
 using Yata.Shared.Models;
 
-namespace Yata.Api.Features.Todos;
+namespace Yata.Api.Features.Labels;
 
-public static class CreateTodo
+public static class CreateLabel
 {
-    public record Command(string Name, string Description, DateTime? Deadline) : IRequest<Guid>;
+    public record Command(string Name, string Description, string Color) : IRequest<Guid>;
 
     public class Validator : AbstractValidator<Command>
     {
         public Validator()
         {
             RuleFor(c => c.Name).NotEmpty();
+            RuleFor(c => c.Color).NotEmpty();
         }
     }
 
@@ -28,36 +29,34 @@ public static class CreateTodo
             var validationResult = await validator.ValidateAsync(request, cancellationToken);
             if (!validationResult.IsValid) { }
 
-            var todo = new Todo
+            var label = new Label()
             {
                 Id = Guid.NewGuid(),
                 Name = request.Name,
                 Description = request.Description,
-                CreatedAt = DateTime.UtcNow,
-                Deadline = request.Deadline,
-                Done = false,
+                Color = request.Color,
             };
 
-            context.Add(todo);
+            context.Add(label);
 
             await context.SaveChangesAsync(cancellationToken);
 
-            return todo.Id;
+            return label.Id;
         }
     }
 }
 
-public class CreateTodoEndpoint : ICarterModule
+public class CreateLabelEndpoint : ICarterModule
 {
     public void AddRoutes(IEndpointRouteBuilder app)
     {
-        app.MapPost("todo", async (CreateTodoRequest request, ISender sender) =>
+        app.MapPost("label", async (CreateLabelRequest request, ISender sender) =>
         {
-            var command = request.Adapt<CreateTodo.Command>();
+            var command = request.Adapt<CreateLabel.Command>();
 
-            var todoId = await sender.Send(command);
+            var labelId = await sender.Send(command);
 
-            return Results.Ok(todoId);
+            return Results.Ok(labelId);
         });
     }
 }
