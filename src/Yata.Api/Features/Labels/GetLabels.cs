@@ -26,7 +26,6 @@ public class GetLabels
             return labels;
         }
     }
-
 }
 
 public class GetLabelsEndpoint : ICarterModule
