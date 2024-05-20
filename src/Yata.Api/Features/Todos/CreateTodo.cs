@@ -58,6 +58,7 @@ public class CreateTodoEndpoint : ICarterModule
             var todoId = await sender.Send(command);
 
             return Results.Ok(todoId);
-        });
+        })
+            .WithTags(nameof(Todo));
     }
 }

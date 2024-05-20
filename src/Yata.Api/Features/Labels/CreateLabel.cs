@@ -57,6 +57,7 @@ public class CreateLabelEndpoint : ICarterModule
             var labelId = await sender.Send(command);
 
             return Results.Ok(labelId);
-        });
+        })
+            .WithTags(nameof(Label));
     }
 }

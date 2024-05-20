@@ -3,6 +3,7 @@ using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Yata.Api.Contracts.Todos;
 using Yata.Api.Data;
+using Yata.Shared.Models;
 
 namespace Yata.Api.Features.Todos;
 
@@ -43,6 +44,7 @@ public class GetTodoEndpoint : ICarterModule
             var result = await sender.Send(query);
 
             return result is null ? Results.NotFound() : Results.Ok(result);
-        });
+        })
+            .WithTags(nameof(Todo));
     }
 }

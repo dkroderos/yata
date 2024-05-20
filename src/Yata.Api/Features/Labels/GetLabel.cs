@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Yata.Api.Contracts.Labels;
 using Yata.Api.Data;
 using Yata.Api.Features.Todos;
+using Yata.Shared.Models;
 
 namespace Yata.Api.Features.Labels;
 
@@ -42,6 +43,7 @@ public class GetLabelEndpoint : ICarterModule
             var result = await sender.Send(query);
 
             return result is null ? Results.NotFound() : Results.Ok(result);
-        });
+        })
+            .WithTags(nameof(Label));
     }
 }
